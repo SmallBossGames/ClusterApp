@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClusterWorkerNode";
+
+package greet;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply);
+}
+
+service MathExecuter {
+	rpc Execute (MathDataRequest) returns (MathDataResponse);
+}
+
+message MathDataRequest {
+	int64 index = 1;
+	int64 size = 2;
+	int32 hardLevel = 3;
+	string text = 4;
+}
+
+message MathDataResponse {
+	string hash = 1;
+	int32 nonce = 2;
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message HelloReply {
+  string message = 1;
+}

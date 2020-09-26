@@ -1,0 +1,54 @@
+﻿<Window x:Class="ClusterAppClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClusterAppClient"
+        xmlns:vm="clr-namespace:ClusterAppClient.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <TextBlock Margin="2" Text="Сложность: "/>
+                <TextBox Margin="2" Width="80" Text="{Binding HardLevel}"/>
+                <Button x:Name="FindHashButton" Width="80" Margin="2" Content="Найти хэш" Click="FindHashButton_Click"/>
+            </StackPanel>
+            <TextBlock Margin="2" Grid.Row="1" Text="Исходный текст"/>
+            <TextBox Margin="2" Grid.Row="2" Text="{Binding SourceText}"/>
+            <TextBlock Margin="2" Grid.Row="3" Text="Ход выполнения"/>
+            <TextBox x:Name="TextBox1" Margin="2" Grid.Row="4" Text="{Binding OutputProgressText, Mode=OneWay}"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <DataGrid Margin="2" Grid.Row="0" ItemsSource="{Binding NodeUrls}" AutoGenerateColumns="False" CanUserAddRows="False"
+                      SelectedIndex="{Binding SelectedNodeIndex}" SelectedItem="{Binding SelectedNode}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Url" Width="1*" Binding="{Binding Url}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Grid.Row="1">
+                <Button x:Name="AddNodeButton" Margin="2" Content="Добавить узел" Click="AddNodeButton_Click"/>
+                <Button x:Name="RemoveNodeButton" Margin="2" Content="Удалить узел" Click="RemoveNodeButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
