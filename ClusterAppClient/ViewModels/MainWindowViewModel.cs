@@ -90,7 +90,7 @@ namespace ClusterAppClient.ViewModels
             {
                 sb.AppendLine("Result: ").AppendLine();
 
-                sb.AppendLine($"Hash: {result.Result.Hash}").AppendLine($"Nonce {result.Result.Nonce}").AppendLine();
+                sb.AppendLine($"Hash: {result.Result.Hash}").AppendLine($"Nonce: {result.Result.Nonce}").AppendLine();
 
                 sb.AppendLine("Process completed.");
                 OutputProgressText = sb.ToString();
