@@ -1,0 +1,16 @@
+$Env:ASPNETCORE_URLS = "https://127.0.0.1:5001"
+Start-Process -FilePath ..\ClusterWorkerNode\bin\Release\netcoreapp3.1\ClusterWorkerNode.exe
+$Env:ASPNETCORE_URLS = "https://127.0.0.2:5001"
+Start-Process -FilePath ..\ClusterWorkerNode\bin\Release\netcoreapp3.1\ClusterWorkerNode.exe
+$Env:ASPNETCORE_URLS = "https://127.0.0.3:5001"
+Start-Process -FilePath ..\ClusterWorkerNode\bin\Release\netcoreapp3.1\ClusterWorkerNode.exe
+$Env:ASPNETCORE_URLS = "https://127.0.0.4:5001"
+Start-Process -FilePath ..\ClusterWorkerNode\bin\Release\netcoreapp3.1\ClusterWorkerNode.exe
+$Env:ASPNETCORE_URLS = "https://127.0.0.5:5001"
+Start-Process -FilePath ..\ClusterWorkerNode\bin\Release\netcoreapp3.1\ClusterWorkerNode.exe
+$Env:ASPNETCORE_URLS = "https://127.0.0.6:5001"
+Start-Process -FilePath ..\ClusterWorkerNode\bin\Release\netcoreapp3.1\ClusterWorkerNode.exe
+$Env:ASPNETCORE_URLS = "https://127.0.0.7:5001"
+Start-Process -FilePath ..\ClusterWorkerNode\bin\Release\netcoreapp3.1\ClusterWorkerNode.exe
+$Env:ASPNETCORE_URLS = "https://127.0.0.8:5001"
+Start-Process -FilePath ..\ClusterWorkerNode\bin\Release\netcoreapp3.1\ClusterWorkerNode.exe

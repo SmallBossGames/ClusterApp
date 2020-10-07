@@ -51,34 +51,6 @@ namespace ClusterAppClient
             return true;
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            /*var watch = new System.Diagnostics.Stopwatch();
-
-            watch.Start();
-
-            FindExpectedHashWithVector();
-
-            watch.Stop();
-
-            MessageBox.Show($"ExecutionTime {watch.ElapsedMilliseconds}");*/
-
-            
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            var watch = new System.Diagnostics.Stopwatch();
-
-            watch.Start();
-
-            FindExpectedHash();
-
-            watch.Stop();
-
-            MessageBox.Show($"ExecutionTime {watch.ElapsedMilliseconds}");
-        }
-
         private void FindExpectedHash()
         {
             using var mySHA256 = SHA256.Create();
@@ -152,14 +124,6 @@ namespace ClusterAppClient
             return result;
         }
 
-        private async void FindHashButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is MainWindowViewModel vm)
-            {
-                await vm.FindHashAndNonceAsync(Dispatcher);
-            }
-        }
-
         private void AddNodeButton_Click(object sender, RoutedEventArgs e)
         {
             if(DataContext is MainWindowViewModel vm)
@@ -173,6 +137,46 @@ namespace ClusterAppClient
             if (DataContext is MainWindowViewModel vm)
             {
                 vm.RemoveNode();
+            }
+        }
+
+        private void AddKeyValue_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is MainWindowViewModel vm)
+            {
+                vm.AddVariable();
+            }
+        }
+
+        private void RemoveKeyValue_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is MainWindowViewModel vm)
+            {
+                vm.RemoveVariable();
+            }
+        }
+
+        private async void ExecuteProgram_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is MainWindowViewModel vm)
+            {
+                await vm.ExecuteProgramAsync(Dispatcher);
+            }
+        }
+
+        private async void UploadSlave_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is MainWindowViewModel vm)
+            {
+                await vm.UploadSlaveDllToNodes(Dispatcher);
+            }
+        }
+
+        private async void UploadMaster_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is MainWindowViewModel vm)
+            {
+                await vm.UploadMasterDll(Dispatcher);
             }
         }
     }

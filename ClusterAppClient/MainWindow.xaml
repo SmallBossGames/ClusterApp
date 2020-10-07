@@ -15,24 +15,47 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
-
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal" Grid.Row="0">
-                <TextBlock Margin="2" Text="Сложность: "/>
-                <TextBox Margin="2" Width="80" Text="{Binding HardLevel}"/>
-                <Button x:Name="FindHashButton" Width="80" Margin="2" Content="Найти хэш" Click="FindHashButton_Click"/>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="2" Text="Master DLL: "/>
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="2" Text="{Binding MasterDllPath}"/>
+                <Button x:Name="UploadMaster" Grid.Row="0" Grid.Column="2" Margin="2" Click="UploadMaster_Click">Загрузить</Button>
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="2" Text="Slave DLL: "/>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="2" Text="{Binding SlaveDllPath}"/>
+                <Button x:Name="UploadSlave" Grid.Row="1" Grid.Column="2" Margin="2" Click="UploadSlave_Click">Загрузить</Button>
+            </Grid>
+            <TextBlock Margin="2" Grid.Row="1" Text="Исходные данные"/>
+            <DataGrid Margin="2" Grid.Row="2" ItemsSource="{Binding Variables}" AutoGenerateColumns="False" CanUserAddRows="False"
+                      SelectedIndex="{Binding SelectedVariableIndex}" SelectedItem="{Binding SelectedVariable}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ключ" Width="1*" Binding="{Binding Key}"/>
+                    <DataGridTextColumn Header="Значение" Width="1*" Binding="{Binding Value}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <Button x:Name="AddKeyValue" Margin="2" Click="AddKeyValue_Click">Добавить значение</Button>
+                <Button x:Name="RemoveKeyValue" Margin="2" Click="RemoveKeyValue_Click">Удалить значение</Button>
+                <Button x:Name="ExecuteProgram" Margin="2" Click="ExecuteProgram_Click">Выполнить программу</Button>
             </StackPanel>
-            <TextBlock Margin="2" Grid.Row="1" Text="Исходный текст"/>
-            <TextBox Margin="2" Grid.Row="2" Text="{Binding SourceText}"/>
-            <TextBlock Margin="2" Grid.Row="3" Text="Ход выполнения"/>
-            <TextBox x:Name="TextBox1" Margin="2" Grid.Row="4" Text="{Binding OutputProgressText, Mode=OneWay}"/>
+            <TextBlock Margin="2" Grid.Row="4" Text="Ход выполнения"/>
+            <TextBox x:Name="TextBox1" Margin="2" Grid.Row="5" Text="{Binding OutputProgressText, Mode=OneWay}"/>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

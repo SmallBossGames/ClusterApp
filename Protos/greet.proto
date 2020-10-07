@@ -12,6 +12,29 @@ service Greeter {
 
 service MathExecuter {
 	rpc Execute (MathDataRequest) returns (MathDataResponse);
+	rpc SendProgram (SendProgramRequest) returns (SendProgramResponse);
+	rpc ExecuteProgram (DataRequest) returns (DataResponse);
+}
+
+message SendProgramRequest {
+	int32 nodeIndex = 1;
+	bytes programBytecode = 2;
+}
+
+message SendProgramResponse {
+	int32 nodeIndex = 1;
+	string successMessage = 2;
+}
+
+message DataRequest {
+	int32 nodeIndex = 1;
+	int32 nodeCount = 2;
+	map<string, string> variables = 3;
+}
+
+message DataResponse {
+	int32 nodeIndex = 1;
+	map<string, string> variables = 2;
 }
 
 message MathDataRequest {

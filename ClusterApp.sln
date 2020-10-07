@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClusterAppClient", "Cluster
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClusterWorkerNode", "ClusterWorkerNode\ClusterWorkerNode.csproj", "{EDF6B8EC-9586-423E-B792-0DE67D14EBA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClusterGrpcClient", "ClusterGrpcClient\ClusterGrpcClient.csproj", "{B17EF353-777E-4D5B-AF72-EE24D8DF9523}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClusterGrpcClient", "ClusterGrpcClient\ClusterGrpcClient.csproj", "{B17EF353-777E-4D5B-AF72-EE24D8DF9523}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClusterWorkerServices", "ClusterWorkerServices\ClusterWorkerServices.csproj", "{C513D412-0850-4535-8A66-9F92016DA295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClusterWorkerServices", "ClusterWorkerServices\ClusterWorkerServices.csproj", "{C513D412-0850-4535-8A66-9F92016DA295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExecutionSlave", "MathExecutionSlave\MathExecutionSlave.csproj", "{8EA62635-2170-4073-9046-8E809E4DBD09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExecutorMaster", "MathExecutorMaster\MathExecutorMaster.csproj", "{596279C7-3EC6-411A-AC17-B314617DB501}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{C513D412-0850-4535-8A66-9F92016DA295}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C513D412-0850-4535-8A66-9F92016DA295}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C513D412-0850-4535-8A66-9F92016DA295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA62635-2170-4073-9046-8E809E4DBD09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA62635-2170-4073-9046-8E809E4DBD09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA62635-2170-4073-9046-8E809E4DBD09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA62635-2170-4073-9046-8E809E4DBD09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{596279C7-3EC6-411A-AC17-B314617DB501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{596279C7-3EC6-411A-AC17-B314617DB501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{596279C7-3EC6-411A-AC17-B314617DB501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{596279C7-3EC6-411A-AC17-B314617DB501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
